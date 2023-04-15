@@ -49,6 +49,9 @@ func CreateTransaction(c echo.Context) error {
 	if err := c.Bind(transaction); err != nil {
 		return c.JSON(http.StatusBadRequest, view.Response{Message: "Invalid request payload"})
 	}
+	if transaction.Description == "" && transaction.Amount == 0 {
+		return c.JSON(http.StatusBadRequest, view.Response{Message: "Invalid request payload"})
+	}
 
 	result := config.DB.Create(&transaction)
 	if result.Error != nil {
