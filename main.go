@@ -6,7 +6,7 @@ import (
 	"log"
 	"os"
 
-	"mvc/controller"
+	"github.com/eppea/mvc/controller"
 
 	_ "github.com/go-sql-driver/mysql"
 	"github.com/labstack/echo/v4"

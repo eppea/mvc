@@ -5,8 +5,8 @@ import (
 	"net/http"
 	"strconv"
 
-	"MVC/model"
-	"MVC/view"
+	"github.com/eppea/MVC/model"
+	"github.com/eppea/MVC/view"
 
 	"github.com/labstack/echo/v4"
 )
