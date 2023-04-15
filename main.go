@@ -1,29 +1,26 @@
 package main
 
 import (
-	"database/sql"
 	"fmt"
-	"log"
+	"mvc/config"
+	"mvc/controller"
 	"os"
 
-	"github.com/eppea/mvc/controller"
+	// "github.com/eppea/mvc/controller"
 
 	_ "github.com/go-sql-driver/mysql"
 	"github.com/labstack/echo/v4"
 	"github.com/labstack/echo/v4/middleware"
 )
 
-var db *sql.DB
+// Koneksi ke database
 
 func main() {
-	var err error
+	config.InitDB()
+	//var err error
 
-	// Koneksi ke database
-	db, err = sql.Open("mysql", "root:EANHHUFWsX2ocayI4WXW@tcp(containers-us-west-143.railway.app:6475)/railway")
-	if err != nil {
-		log.Fatal(err)
-	}
-	defer db.Close()
+	// db.AutoMigrate(&model.Transaction{})
+	// defer db.Close()
 
 	// Init Echo framework
 	e := echo.New()
